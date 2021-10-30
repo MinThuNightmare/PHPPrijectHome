@@ -8,6 +8,10 @@ html{
     
     text-decoration: none;
 }
+body{
+  background-color: gray;
+
+}
 
 .btn{
   border: none;
@@ -21,4 +25,10 @@ html{
   height: auto;
   padding: 0;
   margin: 0;
+}
+
+.jewe_img{
+  width: 10px;
+  height: auto;
+  
 }

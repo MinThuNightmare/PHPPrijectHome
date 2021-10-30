@@ -1,3 +1,4 @@
+<?php include_once "include/db.php"?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,8 +12,38 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <title>Gems For You</title>
     <link rel="stylesheet" href="src/style.css">
+    <style>
+
+.btn{
+  border: none;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+  }
+.logo_cover{
+  width: 55px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.jewe_img{
+  
+  height: 200px;
+  
+}
+.card{
+  height: 310px;
+}
+.para{
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+    </style>
   </head>
-  <body>
+  <body class="">
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
@@ -28,9 +59,23 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav  mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
+        <?php
+          $query = "SELECT * FROM categotries";
+          $result = mysqli_query($connect,$query);
+          if(!$result){
+            die("Query Fail " . mysqli_error($result));
+          }
+          while($row = mysqli_fetch_assoc($result)){
+            $cat_id = $row['cat_id'];
+            $cat_title = $row['cat_title'];
+            ?>
+            <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#"><?php echo $cat_title?></a>
+          </li>
+        <?php  
+          }
+        ?>
+       
         
       </ul>
       
@@ -38,6 +83,45 @@
   </div>
 </nav>
     <!-- Navbar End -->
+
+<!-- selling card Start -->
+
+<div class="container-fluid my-5">
+  <div class="container">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+      <div class="col">
+        <div class=" bg-light">
+          <div class="card" >
+  <img src="src/img/1.JPG" class="card-img-top jewe_img" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text para">
+      ကျောက်နက် <br>
+      စျေး - 15000Ks
+    </p>
+    <a href="#" class="btn btn-sm btn-primary">Buy</a>
+  </div>
+</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class=" bg-light">
+          <div class="card" >
+            <img src="src/img/2.JPG" class="card-img-top jewe_img " alt="...">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-sm btn-primary float-end">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- selling card End -->
 
 
     
