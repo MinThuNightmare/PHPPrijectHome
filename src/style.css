@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+    
+    text-decoration: none;
+}
+
+.btn{
+  border: none;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+  }
+.logo_cover{
+  width: 55px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
